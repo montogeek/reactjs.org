@@ -4,11 +4,11 @@
  * @emails react-core
  */
 
-'use strict';
+'use strict'
 
-import Link from 'gatsby-link';
-import React from 'react';
-import {colors, media} from 'theme';
+import Link from 'gatsby-link'
+import React from 'react'
+import {colors, media} from 'theme'
 
 const ArrowSvg = ({cssProps = {}}) => (
   <svg
@@ -25,17 +25,17 @@ const ArrowSvg = ({cssProps = {}}) => (
       fill="currentColor"
     />
   </svg>
-);
+)
 
 const ButtonLink = ({children, type, ...rest}) => {
-  let typeStyle;
+  let typeStyle
   switch (type) {
     case 'primary':
-      typeStyle = primaryStyle;
-      break;
+      typeStyle = primaryStyle
+      break
     case 'secondary':
-      typeStyle = secondaryStyle;
-      break;
+      typeStyle = secondaryStyle
+      break
   }
 
   return (
@@ -43,8 +43,8 @@ const ButtonLink = ({children, type, ...rest}) => {
       {children}
       {type === 'secondary' && <ArrowSvg cssProps={{marginLeft: 10}} />}
     </Link>
-  );
-};
+  )
+}
 
 const style = {
   display: 'inline-block',
@@ -53,7 +53,7 @@ const style = {
   [media.greaterThan('xlarge')]: {
     fontSize: 20,
   },
-};
+}
 
 const primaryStyle = {
   backgroundColor: colors.brand,
@@ -70,7 +70,7 @@ const primaryStyle = {
   ':hover': {
     backgroundColor: colors.white,
   },
-};
+}
 
 const secondaryStyle = {
   color: colors.brand,
@@ -79,6 +79,6 @@ const secondaryStyle = {
   ':hover': {
     color: colors.white,
   },
-};
+}
 
-export default ButtonLink;
+export default ButtonLink

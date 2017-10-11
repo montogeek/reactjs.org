@@ -4,28 +4,24 @@
  * @emails react-core
  */
 
-'use strict';
+'use strict'
 
-import Container from 'components/Container';
-import HeaderLink from './HeaderLink';
-import Link from 'gatsby-link';
-import React from 'react';
-import {colors, fonts, media} from 'theme';
-import {version} from 'site-constants';
-import ExternalLinkSvg from 'templates/components/ExternalLinkSvg';
+import Container from 'components/Container'
+import HeaderLink from './HeaderLink'
+import Link from 'gatsby-link'
+import React from 'react'
+import {colors, fonts, media} from 'theme'
+import {version} from 'site-constants'
+import ExternalLinkSvg from 'templates/components/ExternalLinkSvg'
 
-import logoSvg from 'icons/logo.svg';
+import logoSvg from 'icons/logo.svg'
 
 const Header = ({location}) => (
   <header
+    className="fixed z-1 w-100 top-0 left-0"
     css={{
       backgroundColor: colors.darker,
       color: colors.white,
-      position: 'fixed',
-      zIndex: 1,
-      width: '100%',
-      top: 0,
-      left: 0,
     }}>
     <Container>
       <div
@@ -243,6 +239,6 @@ const Header = ({location}) => (
       </div>
     </Container>
   </header>
-);
+)
 
-export default Header;
+export default Header

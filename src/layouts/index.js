@@ -4,24 +4,24 @@
  * @emails react-core
  */
 
-'use strict';
+'use strict'
 
 // Polyfills for IE
-import 'array-from';
-import 'string.prototype.includes';
-import 'string.prototype.repeat';
+import 'array-from'
+import 'string.prototype.includes'
+import 'string.prototype.repeat'
 
-import React, {Component} from 'react';
-import Flex from 'components/Flex';
-import Footer from 'components/LayoutFooter';
-import Header from 'components/LayoutHeader';
-import {media} from 'theme';
+import React, {Component} from 'react'
+import Flex from 'components/Flex'
+import Footer from 'components/LayoutFooter'
+import Header from 'components/LayoutHeader'
+import {media} from 'theme'
 
 // Import global styles
-import '../prism-styles';
-import 'glamor/reset';
-import 'css/reset.css';
-import 'css/algolia.css';
+import '../prism-styles'
+// import 'css/reset.css';
+import 'tachyons'
+import 'css/algolia.css'
 
 class Template extends Component {
   componentDidMount() {
@@ -32,31 +32,35 @@ class Template extends Component {
       apiKey: '36221914cce388c46d0420343e0bb32e',
       indexName: 'react',
       inputSelector: '#algolia-doc-search',
-    });
+    })
   }
 
   render() {
-    const {children, location} = this.props;
+    const {children, location} = this.props
 
     // TODO - is there a better way to check if we need we have a sidebar?
-    let layoutHasSidebar = false;
+    let layoutHasSidebar = false
     if (
       location.pathname.match(
         /^\/(docs|tutorial|community|blog|contributing|warnings)/,
       )
     ) {
-      layoutHasSidebar = true;
+      layoutHasSidebar = true
     }
 
     return (
       <div
+        className="flex flex-column"
         css={{
-          display: 'flex',
-          flexDirection: 'column',
           minHeight: 'calc(100vh - 40px)',
         }}>
         <Header location={location} />
-        <Flex
+        <div
+          className="flex flex-column justify-start mt4"
+          css={{flexShrink: 0, flexGrow: 1}}>
+          {children()}
+        </div>
+        {/* <Flex
           direction="column"
           shrink="0"
           grow="1"
@@ -72,11 +76,11 @@ class Template extends Component {
             },
           }}>
           {children()}
-        </Flex>
+        </Flex> */}
         <Footer layoutHasSidebar={layoutHasSidebar} />
       </div>
-    );
+    )
   }
 }
 
-export default Template;
+export default Template
